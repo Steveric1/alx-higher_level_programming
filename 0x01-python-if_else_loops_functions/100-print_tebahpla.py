@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-for alpha in range(ord('z'), ord('a') - 1, -1):
+for alpha in range(26):
     if alpha % 2 == 0:
-        print('{:s}'.format(chr(alpha)).upper(), end='')
+        print('{:c}'.format(122 - alpha), end='')
     else:
-        print('{:s}'.format(chr(alpha)), end='')
+        print('{:c}'.format(90 - alpha), end='')
