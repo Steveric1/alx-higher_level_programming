@@ -22,13 +22,13 @@ if __name__ == "__main__":
 
     if op == '+':
         res = add(a, b)
-        print("{} + {} = {}".format(a, b, res))
+        print("{:d} + {:d} = {:d}".format(a, b, res))
     elif op == '-':
         res = sub(a, b)
-        print("{} - {} = {}".format(a, b, res))
+        print("{:d} - {:d} = {:d}".format(a, b, res))
     elif op == '*':
         res = mul(a, b)
-        print("{} * {} = {}".format(a, b, res))
+        print("{:d} * {:d} = {:d}".format(a, b, res))
     elif op == '/':
         res = div(a, b)
-        print("{} / {} = {}".format(a, b, res))
+        print("{:d} / {:d} = {:d}".format(a, b, res))
