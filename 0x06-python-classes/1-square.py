@@ -3,14 +3,9 @@
 
 
 class Square:
-    """Represents a square
-    Attributes:
-        __size (int): size of a side of the square
+    """Square defines
+    Arg(any data type): the square value
     """
     def __init__(self, size):
-        """Initializes a square
-        Args:
-            size (int): size of a side of the square
-        Returns: None
-        """
+        """size with no type/value verification"""
         self.__size = size

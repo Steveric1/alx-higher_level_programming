@@ -3,5 +3,5 @@
 
 
 class Square:
-    """ empty square """
+    """Empty class"""
     pass
