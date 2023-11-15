@@ -51,11 +51,11 @@ class SinglyLinkedList:
     def __str__(self):
         """Return the string representation of the singlylinkedlist"""
         current = self.__head
-        result = ""
+        result = []
         while current is not None:
-            result += str(current.data) + "\n"
+            result.append(str(current.data))
             current = current.next_node
-        return result.lstrip("\n")
+        return ('\n'.join(result))
 
     def sorted_insert(self, value):
         """Insert a new Node into the correct sorted position."""
@@ -65,7 +65,7 @@ class SinglyLinkedList:
         head, insert at the beginning"""
 
         if self.__head is None:
-            new_node.next_node = self.__head
+            new_node.next_node = None
             self.__head = new_node
         elif self.__head.data > value:
             new_node.next_node = self.__head
