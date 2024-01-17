@@ -26,11 +26,11 @@ if __name__ == "__main__":
     )
 
     # cursor to interact with the database queries
-    cursor = db.cursor()
+    cur = db.cursor()
 
-    # execute mysql queries
-    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-    states = cursor.fetchall()
+    # # Executing the cursor to retrieve states starting with 'N'
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    states = cur.fetchall()
 
     # loop through and print out the data in the table
     for state in states:
