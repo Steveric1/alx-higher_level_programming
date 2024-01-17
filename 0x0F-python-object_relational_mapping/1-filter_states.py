@@ -29,7 +29,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # execute mysql queries
-    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%'")
+    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     states = cursor.fetchall()
 
     # loop through and print out the data in the table
