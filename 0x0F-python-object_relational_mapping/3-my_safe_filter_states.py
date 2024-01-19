@@ -32,8 +32,8 @@ if __name__ == "__main__":
 
     # # Executing the cursor to retrieve states from argument
     usr_arg = sys.argv[4]
-    query = "SELECT * FROM states WHERE name ='" + usr_arg + "'ORDER BY id ASC"
-    cur.execute(query)
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cur.execute(query, (usr_arg,))
     states = cur.fetchall()
 
     # loop through and print out the data in the table
