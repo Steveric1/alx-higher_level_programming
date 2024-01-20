@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Write a script that deletes all State objects with a name
-containing the letter a from the database hbtn_0e_6_usa"""
+"""Write a Python file similar to model_state.py named model_city.py
+that contains the class definition of a City."""
 
 import sys
 from model_state import Base, State
+from model_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -14,10 +15,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state_del = session.query(State).filter(State.name.like('%a%')).first()
+    city_inst = (session.query(State.name, City.id, City.name)
+                 .filter(State.id == City.state_id).all())
 
-    if state_del:
-        session.delete(state_del)
-        session.commit()
-
+    for inst in city_inst:
+        print(inst[0] + ": (" + str(inst[1]) + ") " + inst[2])
     session.close()
