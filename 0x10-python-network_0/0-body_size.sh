@@ -1,2 +1,3 @@
 #!/bin/bash
-curl "$1"
+response=$(curl -s "$1")
+echo -n "$response" | wc -c
