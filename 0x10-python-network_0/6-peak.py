@@ -3,23 +3,24 @@
 
 
 def find_peak(list_of_integers):
+    """ Finds the peak in a list of integers """
     if list_of_integers == []:
         return None
 
     length = len(list_of_integers)
-    mid = int(length/2)
-    LOI = list_of_integers
+    m = int(length / 2)
+    li = list_of_integers
 
-    if mid - 1 < 0 and mid + 1 >= length:
-        return LOI[mid]
-    elif mid - 1 < 0:
-        return LOI[mid] if LOI[mid] > LOI[mid + 1] else LOI[mid + 1]
-    elif mid + 1 >= length:
-        return LOI[mid] if LOI[mid] > LOI[mid - 1] else LOI[mid - 1]
+    if m - 1 < 0 and m + 1 >= length:
+        return li[m]
+    elif m - 1 < 0:
+        return li[m] if li[m] > li[m + 1] else li[m + 1]
+    elif m + 1 >= length:
+        return li[m] if li[m] > li[m - 1] else li[m - 1]
 
-    if LOI[mid - 1] < LOI[mid] > LOI[mid + 1]:
-        return LOI[mid]
+    if li[m - 1] < li[m] > li[m + 1]:
+        return li[m]
 
-    if LOI[mid + 1] > LOI[mid - 1]:
-        return find_peak(LOI[mid:])
-    return find_peak(LOI[:mid])
+    if li[m + 1] > li[m - 1]:
+        return find_peak(li[m:])
+    return find_peak(li[:m])
