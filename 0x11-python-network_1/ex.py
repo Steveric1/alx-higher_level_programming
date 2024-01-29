@@ -2,10 +2,13 @@
 
 import sys
 import urllib.request
+from urllib.error import HTTPError
 
 if __name__ == "__main__":
-    get_url = urllib.request.Request(sys.argv[1])
-    with urllib.request.urlopen(get_url) as res:
-        if 'X-Request-Id' in res.headers:
-            x_request_id = res.headers['X-Request-Id']
-            print(x_request_id)
+    url = sys.argv[1]
+    try:
+        request = urllib.request.Request(url)
+        with urllib.request.urlopen(request) as response:
+            print(response.read().decode("utf-8"))
+    except HTTPError as e:
+        print("Error code: {}".format(e.code))
