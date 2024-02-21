@@ -19,5 +19,5 @@ request(process.argv[2], (error, response, body) => {
     }
   });
 
-  console.log(JSON.stringify(completed, null, 2));
+  console.log(completed);
 });
