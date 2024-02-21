@@ -6,5 +6,4 @@ fs.writeFile(process.argv[2], process.argv[3], 'utf8', (error) => {
     console.log(error);
     process.exit(1);
   }
-  console.log('The file has been saved!');
 });
