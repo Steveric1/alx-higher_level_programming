@@ -10,16 +10,13 @@ request(url, (error, response, body) => {
   }
 
   let count = 0;
-  try {
-    const films = JSON.parse(body).results;
-    films.forEach(film => {
-      const characters = film.characters;
-      if (characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        count++;
-      }
-    });
-    console.log(count);
-  } catch (parseError) {
-    console.log(parseError);
-  }
+
+  const films = JSON.parse(body).results;
+  films.forEach(film => {
+    const characters = film.characters;
+    if (characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+      count++;
+    }
+  });
+  console.log(count);
 });
