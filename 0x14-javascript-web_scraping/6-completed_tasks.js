@@ -1,15 +1,23 @@
 #!/usr/bin/node
 const request = require('request');
-url = process.argv[2];
 
-request(url, (error, response, body) =>{
-    if (error) {
-        console.log(error);
-        process.exit(1);
+request(process.argv[2], (error, response, body) => {
+  if (error) {
+    console.log(error);
+    process.exit(1);
+  }
+  if (response.statusCode !== 200) {
+    console.log('Invalid:', response.statusCode);
+  }
+
+  const completed = {};
+  const tasks = JSON.parse(body);
+  tasks.forEach(task => {
+    if (task.completed) {
+      const user = task.userId;
+      completed[user] = (completed[user] || 0) + 1;
     }
-    if (response.statusCode === 200) {
-        const tasks = JSON.parse(body);
-        const completedTasks = tasks.filter(task => task.completed === true);
-        console.log(completedTasks.length);
-    }
-})
+  });
+
+  console.log(JSON.stringify(completed, null, 2));
+});
